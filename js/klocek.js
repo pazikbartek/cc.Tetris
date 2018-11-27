@@ -13,16 +13,23 @@ class Klocek {
 
     constructor() {
         this.tablica = this.losujRodzaj();
-        this.x = 14; // na to trzeba będzie jeszcze znaleźć lepszy sposób żeby klocek sie tworzył równo na środku 
+        this.x = 14; // na to trzeba będzie jeszcze znaleźć lepszy sposób żeby klocek sie tworzył równo na środku
         this.y = 0;
 
     }
 
     ruch() {
         //to jest na opadanie klocka, trzeba dopisać ruchy na boki i szybsze spadanie po wcisnieciu strzałki w dół (można rozważyć stworzenie osobnej metody na to)
+
+        //metoda ruch ma przyjmowac parametr ktory okresli kierunek zmiany (przyjmuje x ktory skoryguje this.x)
         this.y++;
     }
-
+    ruch1(x) {
+        //to jest na opadanie klocka, trzeba dopisać ruchy na boki i szybsze spadanie po wcisnieciu strzałki w dół (można rozważyć stworzenie osobnej metody na to)
+        this.x+=x;
+        //metoda ruch ma przyjmowac parametr ktory okresli kierunek zmiany (przyjmuje x ktory skoryguje this.x)
+        // this.y++;
+    }
     rysuj() {
         for (let i = 0; i < 4; i++) {
             for (let j = 0; j < 4; j++) {
