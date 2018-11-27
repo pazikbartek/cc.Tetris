@@ -19,9 +19,16 @@ class Klocek {
 
     ruch() {
         //to jest na opadanie klocka, trzeba dopisać ruchy na boki i szybsze spadanie po wcisnieciu strzałki w dół (można rozważyć stworzenie osobnej metody na to)
+
+        //metoda ruch ma przyjmowac parametr ktory okresli kierunek zmiany (przyjmuje x ktory skoryguje this.x)
         this.y++;
     }
-
+    ruch1(x) {
+        //to jest na opadanie klocka, trzeba dopisać ruchy na boki i szybsze spadanie po wcisnieciu strzałki w dół (można rozważyć stworzenie osobnej metody na to)
+        this.x += x;
+        //metoda ruch ma przyjmowac parametr ktory okresli kierunek zmiany (przyjmuje x ktory skoryguje this.x)
+        // this.y++;
+    }
     rysuj() {
         for (let i = 0; i < this.dlugosc; i++) {
             for (let j = 0; j < this.szerokosc; j++) {
