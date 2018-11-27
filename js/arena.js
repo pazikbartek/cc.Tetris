@@ -1,8 +1,8 @@
 class Arena {
 
     constructor() {
-        this.rozmiar_x = cw / 10;
-        this.rozmiar_y = ch / 10;
+        this.rozmiar_x = cw / piksel;
+        this.rozmiar_y = ch / piksel;
 
         this.tablica = new Array(this.rozmiar_y);
         for (let i = 0; i < this.rozmiar_y; i++) {
@@ -21,10 +21,10 @@ class Arena {
     }
 
     odswiez(klocek) { // Ta metoda ma zmodyfikować tablice po kolizji
-        for (let i = 0; i < 4; i++) {
-            for (let j = 0; j < 4; j++) {
-                if (this.tablica[klocek.y + i][klocek.x + j] == 0) {
-                    this.tablica[klocek.y + i][klocek.x + j] = klocek.tablica[i][j];
+        for (let i = 0; i < klocek.dlugosc; i++) {
+            for (let j = 0; j < klocek.szerokosc; j++) {
+                if (this.tablica[klocek.y + j][klocek.x + i] == 0) {
+                    this.tablica[klocek.y + j][klocek.x + i] = klocek.tablica[j][i];
                 }
             }
         }
@@ -41,7 +41,6 @@ class Arena {
                     case 0:
                         break;
                     case 1:
-                        console.log(j, i);
                         c.fillStyle = 'red';
                         c.fillRect(j, i, 1, 1);
                         break;

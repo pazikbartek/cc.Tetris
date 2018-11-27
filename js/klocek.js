@@ -2,20 +2,19 @@ class Klocek {
 
     losujRodzaj() {
         // TO DO: więcej typów klocków każdy z inną cyferką
+        this.dlugosc = 3;// wiem nazwy zmiennych sa odwrotnie niz powinno byc ale zostawmy tak jak jest
+        this.szerokosc = 2;// inne typy klockow tez musza posiadac te atrybuty, ustawione w ten sam sposob
         return [
-            [1, 1, 1, 0],
-            [0, 1, 0, 0],
-            [0, 0, 0, 0],
-            [0, 0, 0, 0],
+            [1, 1, 1],
+            [0, 1, 0],
         ]
 
     }
 
     constructor() {
         this.tablica = this.losujRodzaj();
-        this.x = 14; // na to trzeba będzie jeszcze znaleźć lepszy sposób żeby klocek sie tworzył równo na środku 
+        this.x = (cw / (piksel * 2)) - 1;
         this.y = 0;
-
     }
 
     ruch() {
@@ -24,8 +23,8 @@ class Klocek {
     }
 
     rysuj() {
-        for (let i = 0; i < 4; i++) {
-            for (let j = 0; j < 4; j++) {
+        for (let i = 0; i < this.dlugosc; i++) {
+            for (let j = 0; j < this.szerokosc; j++) {
                 switch (this.tablica[j][i]) {
                     case 0:
                         break;
@@ -39,11 +38,13 @@ class Klocek {
 
     }
     kolizja() {
-        //  TO DO: to jest tak dla picu napisane, trzeba to poprawić tak żeby patrzył nie tylko na x ale tez na aktualny kształt tablicy i ignorował zera
-        if (this.y > 28) {
+        if (this.y > arena.rozmiar_y - this.szerokosc) {
+            this.y--;
             return true;
         }
     }
+
+    //TO DO kolizja2 która sprawdzi czy nie ma zderzenia z bokami areny
 
     obrot() {
         // TO DO: Obracanie tego co siedzi w this.tablica, to moze byc trudne zostawćie to sobie na deser
