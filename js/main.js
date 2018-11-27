@@ -4,31 +4,38 @@ const cw = canvas.width;
 const ch = canvas.height;
 const piksel = 20;
 c.scale(piksel, piksel);
-const fps = 2;
+const fps = 60;// frames per second, plynnosc animacji
+const trudnosc = 1000; //co ile milisekund ma spadać klocek sam z siebie
 //TO DO: Tablica z kolorami dla poszczególnych klocków
 
 let arena;
 let klocek;
 let score;
+let czas = 0;
+
 
 const setup = () => {
     arena = new Arena();
     klocek = new Klocek();
     score = new Score();
-
     setInterval(odswiez, 1000 / fps);
     // odswiez();
 
 }
 
 const odswiez = () => {
-    klocek.ruch();
     // arena.odswiez(klocek);
     if (klocek.kolizja()) {
         arena.odswiez(klocek);
         klocek = new Klocek();
     }
     rysuj();
+
+    if (performance.now() - czas > trudnosc) {
+        czas = performance.now();
+        klocek.spadanie();
+    }
+
 }
 
 const rysuj = () => {
@@ -40,9 +47,7 @@ const rysuj = () => {
 
 window.onload = setup;
 
-document.addEventListener('keydown', checkKey);
-
-function checkKey(e) {
+document.addEventListener('keydown', (e) => {
 
     e = e || window.event;
 
@@ -51,14 +56,17 @@ function checkKey(e) {
     }
     else if (e.keyCode == '40') {
         // down arrow
+        klocek.spadanie();
     }
     else if (e.keyCode == '37') {
-       // left arrow
-       klocek.ruch1(-1);
+        // left arrow
+        klocek.ruch(-1);
     }
     else if (e.keyCode == '39') {
-       // right arrow
-       klocek.ruch1(1);
+        // right arrow
+        klocek.ruch(1);
     }
 
-}
+});
+
+
