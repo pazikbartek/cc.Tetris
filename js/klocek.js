@@ -6,7 +6,7 @@ class Klocek {
         this.szerokosc = 2;// inne typy klockow tez musza posiadac te atrybuty, ustawione w ten sam sposob
         return [
             [1, 1, 1],
-            [0, 1, 0],
+            [0, 0, 1],
         ]
 
     }
@@ -36,7 +36,7 @@ class Klocek {
                         break;
                     case 1:
                         c.fillStyle = 'red';
-                        c.fillRect(this.x + i, this.y + j, 1, 1);
+                        c.fillRect(this.x+i, this.y+j, 1,1); 
                         break;
                 }
             }

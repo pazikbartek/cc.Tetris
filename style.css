@@ -20,6 +20,12 @@ header {
 
 }
 #canvas{
+<<<<<<< Updated upstream
 
     border: 2px solid black
+=======
+    width:600px;
+    height: 450px;
+    border: 2px solid green;
+>>>>>>> Stashed changes
 }

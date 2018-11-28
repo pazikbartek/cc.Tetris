@@ -14,19 +14,22 @@ let score;
 let czas = 0;
 
 
+
 const setup = () => {
     arena = new Arena();
     klocek = new Klocek();
     score = new Score();
     setInterval(odswiez, 1000 / fps);
-    // odswiez();
-
+    odswiez();
 }
+
+
 
 const odswiez = () => {
     // arena.odswiez(klocek);
-    if (klocek.kolizja()) {
+    if (klocek.kolizja() || arena.kolizja2(klocek)) {
         arena.odswiez(klocek);
+        console.log(arena.tablica);
         klocek = new Klocek();
     }
     rysuj();
@@ -41,12 +44,12 @@ const odswiez = () => {
 const rysuj = () => {
     c.fillStyle = 'black';
     c.fillRect(0, 0, cw, ch);
+    arena.rysuj();
     klocek.rysuj();
     arena.rysuj();
 }
 
 window.onload = setup;
-
 document.addEventListener('keydown', (e) => {
 
     e = e || window.event;
