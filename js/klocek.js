@@ -1,13 +1,108 @@
 class Klocek {
 
     losujRodzaj() {
-        // TO DO: więcej typów klocków każdy z inną cyferką
-        this.dlugosc = 3;// wiem nazwy zmiennych sa odwrotnie niz powinno byc ale zostawmy tak jak jest
-        this.szerokosc = 2;// inne typy klockow tez musza posiadac te atrybuty, ustawione w ten sam sposob
-        return [
-            [1, 1, 1],
-            [0, 1, 0],
-        ]
+
+        let losowa = Math.floor(Math.random() * 9) + 1;
+        console.log(losowa);
+               // // TO DO: więcej typów klocków każdy z inną cyferką
+
+            switch (losowa) {
+                   case 1:
+                       {
+                           this.dlugosc = 3; // wiem nazwy zmiennych sa odwrotnie niz powinno byc ale zostawmy tak jak jest
+                           this.szerokosc = 2; // inne typy klockow tez musza posiadac te atrybuty, ustawione w ten sam sposob
+                           return [
+                               [1, 1, 1],
+                               [0, 1, 0],
+                           ]
+                           break;
+                       }
+
+                   case 2:
+                       {
+                           this.dlugosc = 4;
+                           this.szerokosc = 1;
+                           return [
+                               [1, 1, 1, 1]
+                           ];
+                           break;
+                       }
+
+                   case 3:
+                       {
+                           this.dlugosc = 3;
+                       this.szerokosc = 1;
+                       return [
+                           [1, 1, 1]
+                       ];
+                       break;
+                    }
+
+                   case 4:
+                       {
+                           this.dlugosc = 1;
+                       this.szerokosc = 1;
+                       return [
+                           [1]
+                       ];
+                       break;
+                    }
+
+                   case 5:
+                      { this.dlugosc = 2;
+                       this.szerokosc = 2;
+                       return [
+                           [1, 0],
+                           [1, 1]
+                       ];
+                       break;
+                    }
+
+                   case 6:
+                       {
+                           this.dlugosc = 3;
+                       this.szerokosc = 4;
+                       return [
+                           [1, 0, 0],
+                           [1, 0, 0],
+                           [1, 0, 0],
+                           [1, 1, 1]
+                       ];
+                       break;
+                    }
+                    case 7: {
+                        this.dlugosc = 3;
+                        this.szerokosc = 3;
+                        return [
+                            [1, 1, 1],
+                            [1, 1, 1],
+                            [1, 1, 1]
+                        ];
+                        break;
+                    }
+                     case 8: {
+                         this.dlugosc = 3;
+                         this.szerokosc = 3;
+                         return [
+                             [1, 1, 0],
+                             [0, 1, 0],
+                             [0, 1, 1]
+                         ];
+                         break;
+                     }
+                      case 9: {
+                          this.dlugosc = 3;
+                          this.szerokosc = 3;
+                          return [
+                              [1, 0, 1],
+                              [1, 0, 1],
+                              [1, 1, 1]
+                          ];
+                          break;
+                      }
+
+
+               }
 
     }
 
