@@ -12,6 +12,7 @@ class Arena {
         for (let i = 0; i < this.rozmiar_y; i++) {  //wypełniamy ją zerami które reprezentują że nie ma w tym miejscu narazie nic
             for (let j = 0; j < this.rozmiar_x; j++) {
                 this.tablica[i][j] = 0;
+    
             }
         }
     }

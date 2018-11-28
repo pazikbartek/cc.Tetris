@@ -1,8 +1,24 @@
+
+
 body{
     
-    background: lightskyblue;
+  background-image: url(./images/1200px-Dance_floor_2_by_harmon.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+
     margin: 0;
 }
+
+#title{
+    height:60px;
+    width:258px;
+    background-image: url(./images/tet2.png);
+    background-repeat:no-repeat;
+    background-size: 100%;
+
+}
+
+
 
 #wrapper{
 
@@ -18,10 +34,14 @@ body{
 
 header {
     font-size: 3em;
-
 }
 #canvas{
     width: 400px;
     height: 600px;
-    border: 2px solid black
+    border: 2px double rgba(168, 22, 22,0.70);
+}
+#wynik{
+    font-size: 2em;
+    color:rgb(196, 45, 45);
+   font-family: 'Monoton',cursive;
 }
