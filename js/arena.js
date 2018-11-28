@@ -1,9 +1,8 @@
 class Arena {
 
     constructor() {
-        this.rozmiar_x = cw / 10;
-        this.rozmiar_y = ch / 10;
-
+        this.rozmiar_x = cw / piksel;
+        this.rozmiar_y = ch / piksel;
         this.tablica = new Array(this.rozmiar_y);
         for (let i = 0; i < this.rozmiar_y; i++) {
             this.tablica[i] = new Array(this.rozmiar_x); // tak się tworzy tablice dwu wymiarowa
@@ -17,22 +16,20 @@ class Arena {
         }
     }
 
-    kolizja() {
-        //TO DO: sprawdzenie czy cos jest w indeksie w którym jest aktualnie klocek
-    }
 
     odswiez(klocek) { // Ta metoda ma zmodyfikować tablice po kolizji
-        for (let i = 0; i < 4; i++) {
-            for (let j = 0; j < 4; j++) {
-                if (this.tablica[klocek.y + i][klocek.x + j] == 0) {
-                    this.tablica[klocek.y + i][klocek.x + j] = klocek.tablica[i][j];
+        for (let i = 0; i < klocek.dlugosc; i++) {
+            for (let j = 0; j < klocek.szerokosc; j++) {
+                if (this.tablica[klocek.y + j][klocek.x + i] == 0) {
+                    this.tablica[klocek.y + j][klocek.x + i] = klocek.tablica[j][i];
                 }
             }
         }
     }
 
+
     sprawdzenie() {
-        //  TO DO: sprawdzenie czy jest cała linia w tablicy jeśli tak to update scoru i usunięcie tej linii
+        //  TO DO: sprawdzenie czy jest cała linia zapelniona przez klocki w tablicy jeśli tak to update scoru i usunięcie tej linii 
     }
 
     rysuj() { //To się przyda jak już coś będzie w tablicy żeby narysowąć klocki które już istnieją
@@ -41,9 +38,8 @@ class Arena {
                 switch (arena.tablica[i][j]) {
                     case 0:
                         break;
-                    case 1:
-                        console.log(j, i);
-                        c.fillStyle = 'red';
+                    default:
+                        c.fillStyle = kolorki[arena.tablica[i][j]];
                         c.fillRect(j, i, 1, 1);
                         break;
                 }
@@ -52,4 +48,18 @@ class Arena {
     }
 
 
+    kolizja2(klocek) {
+        //TO DO: sprawdzenie czy cos jest w indeksie w którym jest aktualnie klocek
+        for (let y = 0; y < klocek.szerokosc; y++) {
+            for (let x = 0; x < klocek.dlugosc; x++) {
+                if (klocek.tablica[y][x] !== 0 && arena.tablica[y + klocek.y][x + klocek.x] !== 0 && arena.tablica[y + klocek.y][x + klocek.x] !== undefined) {
+                    if ((y + klocek.y) == 0 || (y + klocek.y) == 1) {
+                        return false;
+                    }
+                    klocek.y--;
+                    return true;
+                }
+            }
+        }
+    }
 }
