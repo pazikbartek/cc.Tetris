@@ -7,6 +7,8 @@ c.scale(piksel, piksel);
 const fps = 60;// frames per second, plynnosc animacji
 const trudnosc = 1000; //co ile milisekund ma spadać klocek sam z siebie
 //TO DO: Tablica z kolorami dla poszczególnych klocków
+const kolorki = [';', 'red', 'blue', 'green', 'yellow', 'orange', 'purple', 'fuchsia', 'cyan', 'white', 'gold']
+
 
 let arena;
 let klocek;

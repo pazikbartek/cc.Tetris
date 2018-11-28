@@ -17,10 +17,10 @@ class Arena {
 
 
     odswiez(klocek) { // Ta metoda ma zmodyfikować tablice po kolizji
-        for (let i = 0; i <klocek.dlugosc; i++) {
+        for (let i = 0; i < klocek.dlugosc; i++) {
             for (let j = 0; j < klocek.szerokosc; j++) {
-                if (this.tablica[klocek.y+j][klocek.x + i] == 0) {
-                    this.tablica[klocek.y+j][klocek.x + i] = klocek.tablica[j][i];
+                if (this.tablica[klocek.y + j][klocek.x + i] == 0) {
+                    this.tablica[klocek.y + j][klocek.x + i] = klocek.tablica[j][i];
                 }
             }
         }
@@ -37,9 +37,8 @@ class Arena {
                 switch (arena.tablica[i][j]) {
                     case 0:
                         break;
-                    case 1:
-                        //console.log(j, i);
-                        c.fillStyle = 'red';
+                    default:
+                        c.fillStyle = kolorki[arena.tablica[i][j]];
                         c.fillRect(j, i, 1, 1);
                         break;
                 }
@@ -50,16 +49,16 @@ class Arena {
 
     kolizja2(klocek) {
         //TO DO: sprawdzenie czy cos jest w indeksie w którym jest aktualnie klocek
-        for (let y=0; y<klocek.szerokosc; y++){
-            for(let x=0; x<klocek.dlugosc; x++){
-                if (klocek.tablica[y][x]!==0 && arena.tablica[y + klocek.y][x+klocek.x]!==0 && arena.tablica[y + klocek.y][x+klocek.x]!==undefined){
-                    if ((y + klocek.y)==0 || (y+klocek.y)==1){
+        for (let y = 0; y < klocek.szerokosc; y++) {
+            for (let x = 0; x < klocek.dlugosc; x++) {
+                if (klocek.tablica[y][x] !== 0 && arena.tablica[y + klocek.y][x + klocek.x] !== 0 && arena.tablica[y + klocek.y][x + klocek.x] !== undefined) {
+                    if ((y + klocek.y) == 0 || (y + klocek.y) == 1) {
                         return false;
                     }
                     klocek.y--;
-                    return true; 
+                    return true;
                 }
             }
         }
-    }    
+    }
 }

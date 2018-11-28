@@ -4,114 +4,115 @@ class Klocek {
 
         let losowa = Math.floor(Math.random() * 10) + 1;
         console.log(losowa);
-               // // TO DO: więcej typów klocków każdy z inną cyferką
+        // // TO DO: więcej typów klocków każdy z inną cyferką
 
-            switch (losowa) {
-                   case 1:
-                       {
-                           this.dlugosc = 3; // wiem nazwy zmiennych sa odwrotnie niz powinno byc ale zostawmy tak jak jest
-                           this.szerokosc = 2; // inne typy klockow tez musza posiadac te atrybuty, ustawione w ten sam sposob
-                           return [
-                               [1, 1, 1],
-                               [0, 1, 0],
-                           ]
-                           break;
-                       }
+        switch (losowa) {
+            case 1:
+                {
+                    this.dlugosc = 3; // wiem nazwy zmiennych sa odwrotnie niz powinno byc ale zostawmy tak jak jest
+                    this.szerokosc = 2; // inne typy klockow tez musza posiadac te atrybuty, ustawione w ten sam sposob
+                    return [
+                        [1, 1, 1],
+                        [0, 1, 0],
+                    ]
+                    break;
+                }
 
-                   case 2:
-                       {
-                           this.dlugosc = 4;
-                           this.szerokosc = 1;
-                           return [
-                               [1, 1, 1, 1]
-                           ];
-                           break;
-                       }
+            case 2:
+                {
+                    this.dlugosc = 4;
+                    this.szerokosc = 1;
+                    return [
+                        [2, 2, 2, 2]
+                    ];
+                    break;
+                }
 
-                   case 3:
-                       {
-                           this.dlugosc = 3;
-                       this.szerokosc = 1;
-                       return [
-                           [1, 1, 1]
-                       ];
-                       break;
-                    }
+            case 3:
+                {
+                    this.dlugosc = 3;
+                    this.szerokosc = 1;
+                    return [
+                        [3, 3, 3]
+                    ];
+                    break;
+                }
 
-                   case 4:
-                       {
-                           this.dlugosc = 1;
-                       this.szerokosc = 1;
-                       return [
-                           [1]
-                       ];
-                       break;
-                    }
+            case 4:
+                {
+                    this.dlugosc = 1;
+                    this.szerokosc = 1;
+                    return [
+                        [4]
+                    ];
+                    break;
+                }
 
-                   case 5:
-                      { this.dlugosc = 2;
-                       this.szerokosc = 2;
-                       return [
-                           [1, 0],
-                           [1, 1]
-                       ];
-                       break;
-                    }
+            case 5:
+                {
+                    this.dlugosc = 2;
+                    this.szerokosc = 2;
+                    return [
+                        [5, 0],
+                        [5, 5]
+                    ];
+                    break;
+                }
 
-                   case 6:
-                       {
-                           this.dlugosc = 3;
-                       this.szerokosc = 4;
-                       return [
-                           [1, 0, 0],
-                           [1, 0, 0],
-                           [1, 0, 0],
-                           [1, 1, 1]
-                       ];
-                       break;
-                    }
-                    case 7: {
-                        this.dlugosc = 3;
-                        this.szerokosc = 3;
-                        return [
-                            [1, 1, 1],
-                            [1, 1, 1],
-                            [1, 1, 1]
-                        ];
-                        break;
-                    }
-                     case 8: {
-                         this.dlugosc = 3;
-                         this.szerokosc = 3;
-                         return [
-                             [1, 1, 0],
-                             [0, 1, 0],
-                             [0, 1, 1]
-                         ];
-                         break;
-                     }
-                      case 9: {
-                          this.dlugosc = 3;
-                          this.szerokosc = 3;
-                          return [
-                              [1, 0, 1],
-                              [1, 0, 1],
-                              [1, 1, 1]
-                          ];
-                          break;
-                      }
+            case 6:
+                {
+                    this.dlugosc = 3;
+                    this.szerokosc = 4;
+                    return [
+                        [6, 0, 0],
+                        [6, 0, 0],
+                        [6, 0, 0],
+                        [6, 6, 6]
+                    ];
+                    break;
+                }
+            case 7: {
+                this.dlugosc = 3;
+                this.szerokosc = 3;
+                return [
+                    [7, 7, 7],
+                    [7, 7, 7],
+                    [7, 7, 7]
+                ];
+                break;
+            }
+            case 8: {
+                this.dlugosc = 3;
+                this.szerokosc = 3;
+                return [
+                    [8, 8, 0],
+                    [0, 8, 0],
+                    [0, 8, 8]
+                ];
+                break;
+            }
+            case 9: {
+                this.dlugosc = 3;
+                this.szerokosc = 3;
+                return [
+                    [9, 0, 9],
+                    [9, 0, 9],
+                    [9, 9, 9]
+                ];
+                break;
+            }
 
-                     case 10: {
-                         this.dlugosc = 3;
-                         this.szerokosc = 3;
-                         return [
-                             [1, 0, 0],
-                             [1, 1, 1],
-                             [0, 0, 1]
-                         ];
-                         break;
-                     }
-               }
+            case 10: {
+                this.dlugosc = 3;
+                this.szerokosc = 3;
+                return [
+                    [10, 0, 0],
+                    [10, 10, 10],
+                    [0, 0, 10]
+                ];
+                break;
+            }
+        }
 
     }
 
@@ -138,9 +139,9 @@ class Klocek {
                 switch (this.tablica[j][i]) {
                     case 0:
                         break;
-                    case 1:
-                        c.fillStyle = 'red';
-                        c.fillRect(this.x+i, this.y+j, 1,1); 
+                    default:
+                        c.fillStyle = kolorki[this.tablica[j][i]]
+                        c.fillRect(this.x + i, this.y + j, 1, 1);
                         break;
                 }
             }
