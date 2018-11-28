@@ -2,7 +2,7 @@ class Klocek {
 
     losujRodzaj() {
 
-        let losowa = Math.floor(Math.random() * 9) + 1;
+        let losowa = Math.floor(Math.random() * 10) + 1;
         console.log(losowa);
                // // TO DO: więcej typów klocków każdy z inną cyferką
 
@@ -101,7 +101,16 @@ class Klocek {
                           break;
                       }
 
-
+                     case 10: {
+                         this.dlugosc = 3;
+                         this.szerokosc = 3;
+                         return [
+                             [1, 0, 0],
+                             [1, 1, 1],
+                             [0, 0, 1]
+                         ];
+                         break;
+                     }
                }
 
     }
