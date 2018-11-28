@@ -6,7 +6,7 @@ class Klocek {
         this.szerokosc = 2;// inne typy klockow tez musza posiadac te atrybuty, ustawione w ten sam sposob
         return [
             [1, 1, 1],
-            [0, 0, 1],
+            [0, 1, 0],
         ]
 
     }

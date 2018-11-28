@@ -52,17 +52,14 @@ class Arena {
         //TO DO: sprawdzenie czy cos jest w indeksie w którym jest aktualnie klocek
         for (let y=0; y<klocek.szerokosc; y++){
             for(let x=0; x<klocek.dlugosc; x++){
-                if ((klocek.tablica[y][x] !== 0) && ((arena.tablica[y+klocek.y]) && (arena.tablica[y + klocek.y][x+klocek.x]))!==0){
-                    console.log(arena.tablica[y+klocek.y]);
-                    console.log(y+klocek.y);
-                    console.log(x+klocek.x);
-                    console.log(arena.tablica[y + klocek.y][x+klocek.x]);
+                if (klocek.tablica[y][x]!==0 && arena.tablica[y + klocek.y][x+klocek.x]!==0 && arena.tablica[y + klocek.y][x+klocek.x]!==undefined){
+                    if ((y + klocek.y)==0 || (y+klocek.y)==1){
+                        return false;
+                    }
                     klocek.y--;
-                    return true;
+                    return true; 
                 }
             }
         }
-         
     }    
-
 }
