@@ -26,7 +26,6 @@ const setup = () => {
 }
 
 
-
 const odswiez = () => {
     // arena.odswiez(klocek);
     if (klocek.kolizja() || arena.kolizja2(klocek)) {
@@ -63,11 +62,11 @@ document.addEventListener('keydown', (e) => {
         // down arrow
         klocek.spadanie();
     }
-    else if (e.keyCode == '37') {
+    else if (e.keyCode == '37' && arena.kolizjaPrawo(klocek)) {
         // left arrow
         klocek.ruch(-1);
     }
-    else if (e.keyCode == '39') {
+    else if (e.keyCode == '39'&& arena.kolizjaLewo(klocek)) {
         // right arrow
         klocek.ruch(1);
     }

@@ -62,4 +62,28 @@ class Arena {
             }
         }
     }
+
+    kolizjaPrawo(klocek){ // kolizja z prawymi bokami klockow
+        for(let y=0; y<klocek.szerokosc; y++){
+            for (let x=0; x<klocek.dlugosc; x++){
+                if(klocek.tablica[y][x]!=0 && arena.tablica[klocek.y+y][klocek.x+x-1]!=0){
+                     return false;
+                }
+            }   
+        }
+        return true;
+    }
+
+
+    kolizjaLewo(klocek){ // kolizja z lewymi bokami klockow
+
+        for(let y=0; y<klocek.szerokosc; y++){
+            for (let x=0; x<klocek.dlugosc; x++){
+                if(klocek.tablica[y][x]!=0 && arena.tablica[klocek.y+y][klocek.x+x+1]!=0){
+                    return false
+                }
+            }
+        }
+        return true;
+    }    
 }
