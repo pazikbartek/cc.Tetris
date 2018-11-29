@@ -30,7 +30,7 @@ class Arena {
 
     sprawdzenie() {
         //  TO DO: sprawdzenie czy jest cała linia zapelniona przez klocki w tablicy jeśli tak to update scoru i usunięcie tej linii 
-   // buuuuuuu gubię się w tych zmiennych :c nie działą :C 
+   
         for(r = 0; r < this.rozmiar_x; r++){
             let isRowFull = true;
             for( j = 0; j < this.rozmiar_y; j++){

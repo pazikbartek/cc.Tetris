@@ -30,31 +30,8 @@ class Arena {
 
     sprawdzenie() {
         //  TO DO: sprawdzenie czy jest cała linia zapelniona przez klocki w tablicy jeśli tak to update scoru i usunięcie tej linii 
-   // buuuuuuu gubię się w tych zmiennych :c nie działą :C 
-        for(r = 0; r < this.rozmiar_x; r++){
-            let isRowFull = true;
-            for( j = 0; j < this.rozmiar_y; j++){
-                isRowFull = isRowFull && (tablica[r][j] != 0);
-            }
-            if(isRowFull){
-               
-                for( y = r; y > 1; y--){
-                    for( j = 0; j < this.rozmiar_y; j++){
-                        tablica[y][j] = tablica[y-1][j];
-                    }
-                }
-               
-                for( j = 0; j < this.rozmiar_y; j++){
-                    tablica[0][j] = 0;
-                }
-                
-                score += 10;
-            }
-        }
-        rysuj();
-    
-       scoreElement.innerHTML = score;
-}
+    }
+
     rysuj() { //To się przyda jak już coś będzie w tablicy żeby narysowąć klocki które już istnieją
         for (let i = 0; i < arena.rozmiar_y; i++) {
             for (let j = 0; j < arena.rozmiar_x; j++) {
