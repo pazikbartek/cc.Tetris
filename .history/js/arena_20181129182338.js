@@ -40,7 +40,7 @@ class Arena {
                
                 for( y = r; y > 1; y--){
                     for( j = 0; j < this.rozmiar_y; j++){
-                        this.tablica[y][j] = this.tablica[y-1][j];
+                        tablica[y][j] = tablica[y-1][j];
                     }
                 }
                

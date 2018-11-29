@@ -34,18 +34,18 @@ class Arena {
         for(r = 0; r < this.rozmiar_x; r++){
             let isRowFull = true;
             for( j = 0; j < this.rozmiar_y; j++){
-                isRowFull = isRowFull && (this.tablica[r][j] != 0);
+                isRowFull = isRowFull && (tablica[r][j] != []);
             }
             if(isRowFull){
                
                 for( y = r; y > 1; y--){
                     for( j = 0; j < this.rozmiar_y; j++){
-                        this.tablica[y][j] = this.tablica[y-1][j];
+                        tablica[y][j] = tablica[y-1][j];
                     }
                 }
                
                 for( j = 0; j < this.rozmiar_y; j++){
-                    this.tablica[0][j] = 0;
+                    this.tablica[0][j] = [];
                 }
                 
                 score += 10;
