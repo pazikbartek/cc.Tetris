@@ -3,7 +3,6 @@ class Klocek {
     losujRodzaj() {
 
         let losowa = Math.floor(Math.random() * 10) + 1;
-        console.log(losowa);
         // // TO DO: więcej typów klocków każdy z inną cyferką
 
         switch (losowa) {
@@ -14,6 +13,7 @@ class Klocek {
                     return [
                         [1, 1, 1],
                         [0, 1, 0],
+                        [0, 0, 0]
                     ]
                     break;
                 }
@@ -23,7 +23,10 @@ class Klocek {
                     this.dlugosc = 4;
                     this.szerokosc = 1;
                     return [
-                        [2, 2, 2, 2]
+                        [2, 2, 2, 2],
+                        [0, 0, 0, 0],
+                        [0, 0, 0, 0],
+                        [0, 0, 0, 0]
                     ];
                     break;
                 }
@@ -33,7 +36,9 @@ class Klocek {
                     this.dlugosc = 3;
                     this.szerokosc = 1;
                     return [
-                        [3, 3, 3]
+                        [3, 3, 3],
+                        [0, 0, 0],
+                        [0, 0, 0]
                     ];
                     break;
                 }
@@ -64,10 +69,10 @@ class Klocek {
                     this.dlugosc = 3;
                     this.szerokosc = 4;
                     return [
-                        [6, 0, 0],
-                        [6, 0, 0],
-                        [6, 0, 0],
-                        [6, 6, 6]
+                        [6, 0, 0, 0],
+                        [6, 0, 0, 0],
+                        [6, 0, 0, 0],
+                        [6, 6, 6, 0]
                     ];
                     break;
                 }
@@ -159,5 +164,20 @@ class Klocek {
 
     obrot() {
         // TO DO: Obracanie tego co siedzi w this.tablica, to moze byc trudne zostawćie to sobie na deser
+
+        let rotate = function (matrix) {
+            matrix = matrix.reverse();
+
+            for (let i = 0; i < matrix.length; i++) {
+                for (let j = 0; j < i; j++) {
+                    let temp = matrix[i][j];
+                    matrix[i][j] = matrix[j][i];
+                    matrix[j][i] = temp;
+                }
+            }
+        };
+        this.dlugosc = this.tablica[0].length;
+        this.szerokosc = this.tablica.length;
+        rotate(this.tablica);
     }
 }

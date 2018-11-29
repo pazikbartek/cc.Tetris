@@ -30,7 +30,7 @@ const odswiez = () => {
     // arena.odswiez(klocek);
     if (klocek.kolizja() || arena.kolizja2(klocek)) {
         arena.odswiez(klocek);
-        console.log(arena.tablica);
+        // console.log(arena.tablica);
         klocek = new Klocek();
     }
     rysuj();
@@ -57,6 +57,7 @@ document.addEventListener('keydown', (e) => {
 
     if (e.keyCode == '38') {
         // up arrow
+        klocek.obrot();
     }
     else if (e.keyCode == '40') {
         // down arrow
@@ -66,7 +67,7 @@ document.addEventListener('keydown', (e) => {
         // left arrow
         klocek.ruch(-1);
     }
-    else if (e.keyCode == '39'&& arena.kolizjaLewo(klocek)) {
+    else if (e.keyCode == '39' && arena.kolizjaLewo(klocek)) {
         // right arrow
         klocek.ruch(1);
     }
