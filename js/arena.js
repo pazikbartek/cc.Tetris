@@ -1,6 +1,8 @@
 class Arena {
 
     constructor() {
+    
+        this.score = 0;
         this.rozmiar_x = cw / piksel;
         this.rozmiar_y = ch / piksel;
         this.tablica = new Array(this.rozmiar_y);
@@ -30,29 +32,26 @@ class Arena {
 
     sprawdzenie() {
         //  TO DO: sprawdzenie czy jest cała linia zapelniona przez klocki w tablicy jeśli tak to update scoru i usunięcie tej linii 
-   // buuuuuuu gubię się w tych zmiennych :c nie działą :C 
-        for(r = 0; r < this.rozmiar_x; r++){
-            let isRowFull = true;
-            for( j = 0; j < this.rozmiar_y; j++){
-                isRowFull = isRowFull && (this.tablica[r][j] != 0);
-            }
+       
+        let i = this.rozmiar_y - 1; // ostatni index rzędu w tablicy / lecimy od dolu
+   
+        for(i; i>0; i++){
+            
+            isRowFull = this.tablica[i].includes(0); // zwraca true jeżeli rząd zawiera w sobie choć jedno zero
+            isRowEmpty = this.tablica.every( item => item === 0); // zwraca true jezeli caly rzad zawiera zero
+
+            if(isRowEmpty) break;
             if(isRowFull){
-               
-                for( y = r; y > 1; y--){
-                    for( j = 0; j < this.rozmiar_y; j++){
-                        this.tablica[y][j] = this.tablica[y-1][j];
-                    }
-                }
-               
-                for( j = 0; j < this.rozmiar_y; j++){
-                    this.tablica[0][j] = 0;
-                }
+                this.score +=10;
+                // TODO : 
+                // 1. fcja czyszcząca cały rząd 
+                // 2. przerysowanie całej tablicy, żeby ewentualne rzędy na górze opadły
+                this.tablica[i].forEach( el => el = 0);
+                //rysuj?
                 
-                score += 10;
             }
         }
-            
-       scoreElement.innerHTML = score;
+       document.getElementById('wynik').innerText = `00${this.score}`.slice(-3);
 }
     rysuj() { //To się przyda jak już coś będzie w tablicy żeby narysowąć klocki które już istnieją
         for (let i = 0; i < arena.rozmiar_y; i++) {
