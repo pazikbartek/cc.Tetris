@@ -27,7 +27,7 @@ const setup = () => {
 
 
 const odswiez = () => {
-    arena.sprawdzenie();
+    sprawdzenie()
     // arena.odswiez(klocek);
     if (klocek.kolizja() || arena.kolizja2(klocek)) {
         arena.odswiez(klocek);
