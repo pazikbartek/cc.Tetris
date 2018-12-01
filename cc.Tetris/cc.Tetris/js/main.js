@@ -23,18 +23,15 @@ const setup = () => {
     score = new Score();
     setInterval(odswiez, 1000 / fps);
     odswiez();
-    arena.sprawdzenie();
 }
 
 
 const odswiez = () => {
-    // arena.sprawdzenie();
     // arena.odswiez(klocek);
     if (klocek.kolizja() || arena.kolizja2(klocek)) {
         arena.odswiez(klocek);
         // console.log(arena.tablica);
         klocek = new Klocek();
-        arena.sprawdzenie();
     }
     rysuj();
 

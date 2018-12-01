@@ -38,9 +38,8 @@ console.log (arena.tablica);
 console.log(this.rozmiar_y);
         for (let i=0; i < this.rozmiar_y; i++) {
 
-            let isRowNotFull = this.tablica[i].includes(0); // zwraca true jeżeli rząd zawiera w sobie choć jedno zero
-            // let isRowNotEmpty = this.tablica.every(item => item === 0); // zwraca true jezeli caly rzad zawiera zero
-
+            let isRowNotFull = this.tablica[i].includes(0); 
+           
             if (isRowNotFull) {continue;}
             this.score +=10;
             // for (let j=0; j < this.rozmiar_x; j++){

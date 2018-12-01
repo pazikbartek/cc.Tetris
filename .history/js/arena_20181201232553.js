@@ -31,37 +31,22 @@ class Arena {
 
 
     sprawdzenie() {
-        //  TO DO: sprawdzenie czy jest cała linia zapelniona przez klocki w tablicy jeśli tak to update scoru i usunięcie tej linii 
+         
 console.log (arena.tablica);
-        // let i = this.rozmiar_y - 1; // ostatni index rzędu w tablicy / lecimy od dolu
-        let j = this.rozmiar_x;
+               let j = this.rozmiar_x;
 console.log(this.rozmiar_y);
         for (let i=0; i < this.rozmiar_y; i++) {
 
-            let isRowNotFull = this.tablica[i].includes(0); // zwraca true jeżeli rząd zawiera w sobie choć jedno zero
-            // let isRowNotEmpty = this.tablica.every(item => item === 0); // zwraca true jezeli caly rzad zawiera zero
-
+            let isRowNotFull = this.tablica[i].includes(0); 
+           
             if (isRowNotFull) {continue;}
             this.score +=10;
-            // for (let j=0; j < this.rozmiar_x; j++){
+            
 this.tablica.splice(i,1);
 this.tablica.unshift ([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]); // 20 razy 0, metoda
-            // }
-            // if (isRowNotFull) {
-            //     
-            //     for (i; i > 0; i++) {
-            //         this.tablica[i] = 0
-            //     }
-
-
-            //     for (let new_i = this.rozmiar_y; new_i > 1; new_i--) {
-            //         for (let new_j = this.rozmiar_x; new_j > this.rozmiar_x; new_j++) {
-            //             this.tablica[new_i][new_j] = this.tablica[new_i - 1][new_j]
-                    // }
+          
                 }
-                // this.tablica[0][j].forEach(el => el = 0);
-                // rysuj();
-                //
+               
 console.log(this.score)
             }
        
