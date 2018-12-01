@@ -4,7 +4,7 @@ class Klocek {
 
         let losowa = Math.floor(Math.random() * 10) + 1;
         // // TO DO: więcej typów klocków każdy z inną cyferką
- losowa=2;
+ losowa=2
         switch (losowa) {
             case 1:
                 {

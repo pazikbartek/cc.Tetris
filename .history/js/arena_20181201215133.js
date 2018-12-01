@@ -1,7 +1,7 @@
 class Arena {
 
     constructor() {
-    
+
         this.score = 0;
         this.rozmiar_x = cw / piksel;
         this.rozmiar_y = ch / piksel;
@@ -10,13 +10,14 @@ class Arena {
             this.tablica[i] = new Array(this.rozmiar_x); // tak się tworzy tablice dwu wymiarowa
         }
 
-        for (let i = 0; i < this.rozmiar_y; i++) {  //wypełniamy ją zerami które reprezentują że nie ma w tym miejscu narazie nic
+        for (let i = 0; i < this.rozmiar_y; i++) { //wypełniamy ją zerami które reprezentują że nie ma w tym miejscu narazie nic
             for (let j = 0; j < this.rozmiar_x; j++) {
                 this.tablica[i][j] = 0;
-    
+
             }
         }
     }
+
 
     odswiez(klocek) { // Ta metoda ma zmodyfikować tablice po kolizji
         for (let i = 0; i < klocek.dlugosc; i++) {
@@ -28,29 +29,39 @@ class Arena {
         }
     }
 
+
     sprawdzenie() {
         //  TO DO: sprawdzenie czy jest cała linia zapelniona przez klocki w tablicy jeśli tak to update scoru i usunięcie tej linii 
-       
-        let i = this.rozmiar_y - 1; // ostatni index rzędu w tablicy / lecimy od dolu
-   
-        for(i=0; i>0; i++){
-            
-            isRowFull = this.tablica[i].includes(0); // zwraca true jeżeli rząd zawiera w sobie choć jedno zero
-            isRowEmpty = this.tablica.every( item => item === 0); // zwraca true jezeli caly rzad zawiera zero
+console.log (arena.tablica);
+        // let i = this.rozmiar_y - 1; // ostatni index rzędu w tablicy / lecimy od dolu
+        let j = this.rozmiar_X;
+console.log(this.rozmiar_y);
+        for (let i=0; i < this.rozmiar_y; i++) {
 
-            if(isRowEmpty) break;
-            if(isRowFull){
-                this.score +=10;
-                // TODO : 
-                // 1. fcja czyszcząca cały rząd 
-                // 2. przerysowanie całej tablicy, żeby ewentualne rzędy na górze opadły
-                this.tablica[i].forEach( el => el = 0);
-                //rysuj?
-                
+            let isRowNotFull = this.tablica[i].includes(0); // zwraca true jeżeli rząd zawiera w sobie choć jedno zero
+            // let isRowNotEmpty = this.tablica.every(item => item === 0); // zwraca true jezeli caly rzad zawiera zero
+
+            if (isRowNotFull) continue;
+             fv
+            // if (isRowNotFull) {
+            //     this.score += 10;
+            //     for (i; i > 0; i++) {
+            //         this.tablica[i] = 0
+            //     }
+
+
+            //     for (let new_i = this.rozmiar_y; new_i > 1; new_i--) {
+            //         for (let new_j = this.rozmiar_x; new_j > this.rozmiar_x; new_j++) {
+            //             this.tablica[new_i][new_j] = this.tablica[new_i - 1][new_j]
+                    // }
+                }
+                // this.tablica[0][j].forEach(el => el = 0);
+                // rysuj();
+                // document.getElementById('wynik').innerText = `Punkty: ${this.score}`.slice(-3);
+
             }
-        }
-       document.getElementById('wynik').innerText = `00${this.score}`.slice(-3);
-}
+       
+
     rysuj() { //To się przyda jak już coś będzie w tablicy żeby narysowąć klocki które już istnieją
         for (let i = 0; i < arena.rozmiar_y; i++) {
             for (let j = 0; j < arena.rozmiar_x; j++) {
@@ -65,6 +76,7 @@ class Arena {
             }
         }
     }
+
 
     kolizja2(klocek) {
         //TO DO: sprawdzenie czy cos jest w indeksie w którym jest aktualnie klocek
@@ -81,38 +93,37 @@ class Arena {
         }
     }
 
-    kolizjaPrawo(klocek){ // kolizja z prawymi bokami klockow
-        for(let y=0; y<klocek.szerokosc; y++){
-            for (let x=0; x<klocek.dlugosc; x++){
-                if(klocek.tablica[y][x]!=0 && arena.tablica[klocek.y+y][klocek.x+x-1]!=0){
-                     return false;
+    kolizjaPrawo(klocek) { // kolizja z prawymi bokami klockow
+        for (let y = 0; y < klocek.szerokosc; y++) {
+            for (let x = 0; x < klocek.dlugosc; x++) {
+                if (klocek.tablica[y][x] != 0 && arena.tablica[klocek.y + y][klocek.x + x - 1] != 0) {
+                    return false;
                 }
-            }   
+            }
         }
         return true;
     }
 
-    kolizjaLewo(klocek){ // kolizja z lewymi bokami klockow
+    kolizjaLewo(klocek) { // kolizja z lewymi bokami klockow
 
-        for(let y=0; y<klocek.szerokosc; y++){
-            for (let x=0; x<klocek.dlugosc; x++){
-                if(klocek.tablica[y][x]!=0 && arena.tablica[klocek.y+y][klocek.x+x+1]!=0){
+        for (let y = 0; y < klocek.szerokosc; y++) {
+            for (let x = 0; x < klocek.dlugosc; x++) {
+                if (klocek.tablica[y][x] != 0 && arena.tablica[klocek.y + y][klocek.x + x + 1] != 0) {
                     return false
                 }
             }
         }
         return true;
-    }    
+    }
 
-    kolizjaPoObrocie(klocekPrzedObrotem){
+    kolizjaPoObrocie(klocekPrzedObrotem) {
         klocekPrzedObrotem.obrot();
-        if(klocekPrzedObrotem.x + klocekPrzedObrotem.dlugosc > arena.tablica[0].length){
+        if (klocekPrzedObrotem.x + klocekPrzedObrotem.dlugosc > arena.tablica[0].length) {
             klocekPrzedObrotem.obrot();
             klocekPrzedObrotem.obrot();
             klocekPrzedObrotem.obrot();
             return true;
-        }
-        else{
+        } else {
             klocekPrzedObrotem.obrot();
             klocekPrzedObrotem.obrot();
             klocekPrzedObrotem.obrot();
@@ -120,20 +131,20 @@ class Arena {
         }
     }
 
-    kolizjaPoObrocie2(klocekPrzedObrotem){
+    kolizjaPoObrocie2(klocekPrzedObrotem) {
         klocekPrzedObrotem.obrot();
-        if(klocekPrzedObrotem.x < 0){
+        if (klocekPrzedObrotem.x < 0) {
             klocekPrzedObrotem.obrot();
             klocekPrzedObrotem.obrot();
             klocekPrzedObrotem.obrot();
             return true;
-        }
-        else{
+        } else {
             klocekPrzedObrotem.obrot();
             klocekPrzedObrotem.obrot();
             klocekPrzedObrotem.obrot();
             return false;
         }
     }
+
 
 }

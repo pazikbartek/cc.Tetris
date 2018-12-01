@@ -34,7 +34,6 @@ const odswiez = () => {
         arena.odswiez(klocek);
         // console.log(arena.tablica);
         klocek = new Klocek();
-        arena.sprawdzenie();
     }
     rysuj();
 
