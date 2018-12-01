@@ -55,9 +55,18 @@ document.addEventListener('keydown', (e) => {
 
     e = e || window.event;
 
-    if (e.keyCode == '38') {
-        // up arrow
-        klocek.obrot();
+    if (e.keyCode == '38'){
+        if(arena.kolizjaPoObrocie(klocek)){
+            klocek.x--;
+            klocek.obrot()
+        }
+        else if(arena.kolizjaPoObrocie2(klocek)){
+            klocek.x++
+            klocek.obrot();
+        }
+        else{
+            klocek.obrot();
+        }
     }
     else if (e.keyCode == '40') {
         // down arrow

@@ -95,7 +95,6 @@ class Arena {
         return true;
     }
 
-
     kolizjaLewo(klocek){ // kolizja z lewymi bokami klockow
 
         for(let y=0; y<klocek.szerokosc; y++){
@@ -107,4 +106,38 @@ class Arena {
         }
         return true;
     }    
+
+    kolizjaPoObrocie(klocekPrzedObrotem){
+        klocekPrzedObrotem.obrot();
+        if(klocekPrzedObrotem.x + klocekPrzedObrotem.dlugosc > arena.tablica[0].length){
+            klocekPrzedObrotem.obrot();
+            klocekPrzedObrotem.obrot();
+            klocekPrzedObrotem.obrot();
+            return true;
+        }
+        else{
+            klocekPrzedObrotem.obrot();
+            klocekPrzedObrotem.obrot();
+            klocekPrzedObrotem.obrot();
+            return false;
+        }
+    }
+
+    kolizjaPoObrocie2(klocekPrzedObrotem){
+        klocekPrzedObrotem.obrot();
+        if(klocekPrzedObrotem.x < 0){
+            klocekPrzedObrotem.obrot();
+            klocekPrzedObrotem.obrot();
+            klocekPrzedObrotem.obrot();
+            return true;
+        }
+        else{
+            klocekPrzedObrotem.obrot();
+            klocekPrzedObrotem.obrot();
+            klocekPrzedObrotem.obrot();
+            return false;
+        }
+    }
+
+
 }
