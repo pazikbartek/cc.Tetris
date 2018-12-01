@@ -56,7 +56,7 @@ class Arena {
                 }
                 this.tablica[0][j].forEach(el => el = 0);
                 rysuj();
-                document.getElementById('wynik').innerText = `Punkty: ${this.score}`.slice(-3);
+                document.getElementById('wynik').innerText = `${this.score}`.slice(-3);
 
             }
         }

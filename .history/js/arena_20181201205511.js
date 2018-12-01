@@ -34,7 +34,7 @@ class Arena {
         //  TO DO: sprawdzenie czy jest cała linia zapelniona przez klocki w tablicy jeśli tak to update scoru i usunięcie tej linii 
 
         let i = this.rozmiar_y - 1; // ostatni index rzędu w tablicy / lecimy od dolu
-        let j = this.rozmiar_X;
+let j = this.rozmiar
 
         for (i; i > 0; i++) {
 
@@ -51,12 +51,12 @@ class Arena {
 
                 for (let new_i = this.rozmiar_y; new_i > 1; new_i--) {
                     for (let new_j = this.rozmiar_x; new_j > this.rozmiar_x; new_j++) {
-                        this.tablica[new_i][new_j] = this.tablica[new_i - 1][new_j]
+                        this.tablica[new_i][new_j] = this.tablica[new_i-1][new_j]
                     }
                 }
                 this.tablica[0][j].forEach(el => el = 0);
                 rysuj();
-                document.getElementById('wynik').innerText = `Punkty: ${this.score}`.slice(-3);
+                document.getElementById('wynik').innerText = `00${this.score}`.slice(-3);
 
             }
         }
