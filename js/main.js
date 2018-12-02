@@ -60,11 +60,11 @@ document.addEventListener('keydown', (e) => {
 
     if (e.keyCode == '38'){
         if(arena.kolizjaPoObrocie(klocek)){
-            klocek.x--;
+            klocek.x = klocek.x - (klocek.x + klocek.dlugosc - arena.tablica[0].length);
             klocek.obrot()
         }
         else if(arena.kolizjaPoObrocie2(klocek)){
-            klocek.x++
+            klocek.x = klocek.x + (-klocek.x);
             klocek.obrot();
         }
         else{
