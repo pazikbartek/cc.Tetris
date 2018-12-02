@@ -62,6 +62,9 @@ class Arena {
         }
     }
 
+    
+
+    
     kolizja2(klocek) {
         //TO DO: sprawdzenie czy cos jest w indeksie w którym jest aktualnie klocek
         for (let y = 0; y < klocek.szerokosc; y++) {

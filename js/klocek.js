@@ -163,6 +163,12 @@ class Klocek {
         }
     }
 
+    
+    koniec() {
+        if (arena.tablica[1][9] != 0) {
+            return true;
+        }
+    }
     //TO DO kolizja2 która sprawdzi czy nie ma zderzenia z bokami areny
 
     obrot() {
