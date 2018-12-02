@@ -6,7 +6,7 @@ const piksel = 20;
 c.scale(piksel, piksel);
 const fps = 60;// frames per second, plynnosc animacji
 const trudnosc = 1000; //co ile milisekund ma spadać klocek sam z siebie
-//TO DO: Tablica z kolorami dla poszczególnych klocków
+
 const kolorki = [';', 'red', 'blue', 'green', 'yellow', 'orange', 'purple', 'fuchsia', 'cyan', 'white', 'gold']
 
 
@@ -28,11 +28,9 @@ const setup = () => {
 
 
 const odswiez = () => {
-    // arena.sprawdzenie();
-    // arena.odswiez(klocek);
+
     if (klocek.kolizja() || arena.kolizja2(klocek)) {
         arena.odswiez(klocek);
-        // console.log(arena.tablica);
         klocek = new Klocek();
         arena.sprawdzenie();
     }
@@ -58,16 +56,16 @@ document.addEventListener('keydown', (e) => {
 
     e = e || window.event;
 
-    if (e.keyCode == '38'){
-        if(arena.kolizjaPoObrocie(klocek)){
+    if (e.keyCode == '38') {
+        if (arena.kolizjaPoObrocie(klocek)) {
             klocek.x--;
             klocek.obrot()
         }
-        else if(arena.kolizjaPoObrocie2(klocek)){
+        else if (arena.kolizjaPoObrocie2(klocek)) {
             klocek.x++
             klocek.obrot();
         }
-        else{
+        else {
             klocek.obrot();
         }
     }
