@@ -45,7 +45,6 @@ class Arena {
             document.getElementById('wynik').innerText = `Punkty: ${this.score}`; // update tablicy wyników
         }
 
-        console.log(this.score)
     }
 
     rysuj() { //To się przyda jak już coś będzie w tablicy żeby narysowąć klocki które już istnieją
