@@ -18,7 +18,6 @@ class Arena {
         }
     }
 
-
     odswiez(klocek) { // Ta metoda ma zmodyfikować tablice po kolizji
         for (let i = 0; i < klocek.dlugosc; i++) {
             for (let j = 0; j < klocek.szerokosc; j++) {
@@ -29,29 +28,26 @@ class Arena {
         }
     }
 
-
     sprawdzenie() {
 
-        console.log(arena.tablica);
-        let j = this.rozmiar_x;
-        console.log(this.rozmiar_y);
-        for (let i = 0; i < this.rozmiar_y; i++) {
+        let j = new Array(this.rozmiar_x).fill(0); // nowa tablica, której użyjemy do stworzenia czystego wiersza 
+        for (let i = 0; i < this.rozmiar_y; i++) { // przeszukujemy wszystkie wiersze w poszukiwaniu tych zawierających 0, czyli pustych
 
             let isRowNotFull = this.tablica[i].includes(0);
 
             if (isRowNotFull) {
                 continue;
             }
-            this.score += 10;
+            this.score += 10; // zwiększenie wyniku 
 
-            this.tablica.splice(i, 1);
-            this.tablica.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]); // 20 razy 0, metoda
-
+            this.tablica.splice(i, 1); // usunięcie pelnego wiersza
+            // this.tablica.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]); // alternatywny sposób dodania nowego pustego wiersza
+            this.tablica.unshift(j); // nowy pusty wiersz 
+            document.getElementById('wynik').innerText = `Punkty: ${this.score}`; // update tablicy wyników
         }
 
         console.log(this.score)
     }
-
 
     rysuj() { //To się przyda jak już coś będzie w tablicy żeby narysowąć klocki które już istnieją
         for (let i = 0; i < arena.rozmiar_y; i++) {
@@ -67,7 +63,6 @@ class Arena {
             }
         }
     }
-
 
     kolizja2(klocek) {
         //TO DO: sprawdzenie czy cos jest w indeksie w którym jest aktualnie klocek
@@ -136,6 +131,5 @@ class Arena {
             return false;
         }
     }
-
 
 }
