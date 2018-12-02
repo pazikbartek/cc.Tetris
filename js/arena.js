@@ -29,7 +29,6 @@ class Arena {
     }
 
     sprawdzenie() {
-
         let j = new Array(this.rozmiar_x).fill(0); // nowa tablica, której użyjemy do stworzenia czystego wiersza 
         for (let i = 0; i < this.rozmiar_y; i++) { // przeszukujemy wszystkie wiersze w poszukiwaniu tych zawierających 0, czyli pustych
 
@@ -44,7 +43,6 @@ class Arena {
             this.tablica.unshift(j); // nowy pusty wiersz 
             document.getElementById('wynik').innerText = `Punkty: ${this.score}`; // update tablicy wyników
         }
-
     }
 
     rysuj() { //To się przyda jak już coś będzie w tablicy żeby narysowąć klocki które już istnieją
