@@ -62,14 +62,14 @@ class Arena {
         }
     }
 
-    
 
-    
+
+
     kolizja2(klocek) {
         //TO DO: sprawdzenie czy cos jest w indeksie w którym jest aktualnie klocek
         for (let y = 0; y < klocek.szerokosc; y++) {
             for (let x = 0; x < klocek.dlugosc; x++) {
-                if (klocek.tablica[y][x] !== 0 && arena.tablica[y + klocek.y][x + klocek.x] !== 0 && arena.tablica[y + klocek.y][x + klocek.x] !== undefined) {
+                if (arena.tablica[y + klocek.y][x + klocek.x] !== undefined && klocek.tablica[y][x] !== 0 && arena.tablica[y + klocek.y][x + klocek.x] !== 0) {
                     if ((y + klocek.y) == 0 || (y + klocek.y) == 1) {
                         return false;
                     }

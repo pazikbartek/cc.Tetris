@@ -15,6 +15,7 @@ let arena;
 let klocek;
 let score;
 let czas = 0;
+let interval;
 
 const setup = () => {
     resize();
@@ -22,30 +23,29 @@ const setup = () => {
     arena = new Arena();
     klocek = new Klocek();
     score = new Score();
-    setInterval(odswiez, 1000 / fps);
+    interval = setInterval(odswiez, 1000 / fps);
 }
 
 
 const odswiez = () => {
 
+    if (klocek.koniec()) {
+        alert(`Jesteś słaby, masz tylko ${arena.score} pkt. Spróbuj jeszcze raz.`);
+        clearInterval(interval);
+    }
 
     if (klocek.kolizja() || arena.kolizja2(klocek)) {
         arena.odswiez(klocek);
         klocek = new Klocek();
         arena.sprawdzenie();
         console.log(arena.tablica);
-        if (klocek.koniec()) {
-            klocek.losujRodzaj = false;
-            alert(`Jesteś słaby, masz tylko ${arena.score} pkt. Spróbuj jeszcze raz.`);
-        }
     }
-    rysuj();
 
     if (performance.now() - czas > trudnosc) {
         czas = performance.now();
         klocek.spadanie();
     }
-
+    rysuj();
 }
 
 const rysuj = () => {
@@ -53,8 +53,8 @@ const rysuj = () => {
     c.clearRect(0, 0, cw, ch);
     c.fillStyle = "rgba(0, 0, 0, 0.7)";
     c.fillRect(0, 0, cw, ch);
-    arena.rysuj();
     klocek.rysuj();
+    arena.rysuj();
 }
 
 const resize = () => {
