@@ -1,15 +1,16 @@
 const canvas = document.querySelector('#canvas');
 const c = canvas.getContext('2d');
-let cw = canvas.width;
-let ch = canvas.height;
+
 const piksel = 20;
 const fps = 60;// frames per second, plynnosc animacji
-const trudnosc = 1000; //co ile milisekund ma spadać klocek sam z siebie
 
 const kolorki = [';', 'red', 'blue', 'green', 'yellow', 'orange', 'purple', 'fuchsia', 'cyan', 'lime', 'gold'];
 const ramka = 0.05; // grubość ramki
 const kolorramki = 'white'; //kolor ramki
 
+let cw = canvas.width;
+let ch = canvas.height;
+let trudnosc = 1000; //co ile milisekund ma spadać klocek sam z siebie
 let arena;
 let klocek;
 let score;
@@ -46,8 +47,8 @@ const rysuj = () => {
     c.clearRect(0, 0, cw, ch);
     c.fillStyle = "rgba(0, 0, 0, 0.7)";
     c.fillRect(0, 0, cw, ch);
-    klocek.rysuj();
     arena.rysuj();
+    klocek.rysuj();
 }
 
 const resize = () => {
