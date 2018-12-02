@@ -3,8 +3,7 @@ class Klocek {
     losujRodzaj() {
 
         let losowa = Math.floor(Math.random() * 10) + 1;
-        // // TO DO: więcej typów klocków każdy z inną cyferką
-
+        // losowa = 2; // włączyć na wypadek testów
         switch (losowa) {
             case 1:
                 {
@@ -139,14 +138,18 @@ class Klocek {
         // this.y++;
     }
     rysuj() {
+
         for (let i = 0; i < this.dlugosc; i++) {
             for (let j = 0; j < this.szerokosc; j++) {
                 switch (this.tablica[j][i]) {
                     case 0:
                         break;
                     default:
-                        c.fillStyle = kolorki[this.tablica[j][i]]
+                        // rysujramke(this.x + i, this.y + j, 1, 1);
+                        c.fillStyle = kolorramki;
                         c.fillRect(this.x + i, this.y + j, 1, 1);
+                        c.fillStyle = kolorki[this.tablica[j][i]]
+                        c.fillRect((this.x + i) + (ramka), (this.y + j) + (ramka), 1 - (ramka * 2), 1 - (ramka * 2));
                         break;
                 }
             }

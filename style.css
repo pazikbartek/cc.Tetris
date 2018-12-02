@@ -1,12 +1,10 @@
-
-
 body{
-    
-  background-image: url(./images/1200px-Dance_floor_2_by_harmon.jpg);
-  background-repeat: no-repeat;
-  background-size: 100%;
-
+    background-image: url(./images/1200px-Dance_floor_2_by_harmon.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
     margin: 0;
+
 }
 
 #title{
@@ -17,11 +15,8 @@ body{
     background-size: 100%;
 
 }
-
-
-
 #wrapper{
-    /* height: 100vh; */
+
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -38,7 +33,7 @@ header {
     border: 2px double rgba(168, 22, 22,0.70);
 }
 #wynik{
-    font-size: 2em;
+    font-size: 4vh;
     color:rgb(196, 45, 45);
    font-family: 'Monoton',cursive;
 }

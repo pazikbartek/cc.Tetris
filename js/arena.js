@@ -52,8 +52,10 @@ class Arena {
                     case 0:
                         break;
                     default:
-                        c.fillStyle = kolorki[arena.tablica[i][j]];
+                        c.fillStyle = kolorramki;
                         c.fillRect(j, i, 1, 1);
+                        c.fillStyle = kolorki[arena.tablica[i][j]];
+                        c.fillRect(j + (ramka), i + (ramka), 1 - (ramka * 2), 1 - (ramka * 2));
                         break;
                 }
             }
