@@ -28,10 +28,16 @@ const setup = () => {
 
 const odswiez = () => {
 
+
     if (klocek.kolizja() || arena.kolizja2(klocek)) {
         arena.odswiez(klocek);
         klocek = new Klocek();
         arena.sprawdzenie();
+        console.log(arena.tablica);
+        if (klocek.koniec()) {
+            klocek.losujRodzaj = false;
+            alert(`Jesteś słaby, masz tylko ${arena.score} pkt. Spróbuj jeszcze raz.`);
+        }
     }
     rysuj();
 
