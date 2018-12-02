@@ -39,7 +39,6 @@ class Arena {
                 continue;
             }
             this.score += 10; // zwiększenie wyniku 
-
             this.tablica.splice(i, 1); // usunięcie pelnego wiersza
             // this.tablica.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]); // alternatywny sposób dodania nowego pustego wiersza
             this.tablica.unshift(j); // nowy pusty wiersz 
