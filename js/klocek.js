@@ -6,6 +6,7 @@ class Klocek {
         // losowa = 2; // włączyć na wypadek testów
         switch (losowa) {
             case 1:
+            case 2://wywalić
                 {
                     this.dlugosc = 3; // wiem nazwy zmiennych sa odwrotnie niz powinno byc ale zostawmy tak jak jest
                     this.szerokosc = 2; // inne typy klockow tez musza posiadac te atrybuty, ustawione w ten sam sposob
@@ -17,7 +18,7 @@ class Klocek {
                     break;
                 }
 
-            case 2:
+            case 12://case 2:
                 {
                     this.dlugosc = 4;
                     this.szerokosc = 1;
@@ -30,7 +31,7 @@ class Klocek {
                     break;
                 }
 
-            case 3:
+            case 13: //case 3:
                 {
                     this.dlugosc = 3;
                     this.szerokosc = 1;
@@ -95,6 +96,7 @@ class Klocek {
                 ];
                 break;
             }
+            case 3: //wywalić
             case 9: {
                 this.dlugosc = 3;
                 this.szerokosc = 3;
@@ -163,7 +165,7 @@ class Klocek {
         }
     }
 
-    
+
     koniec() {
         if (arena.tablica[1][9] != 0) {
             return true;
