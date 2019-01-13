@@ -30,8 +30,9 @@ const setup = () => {
 const odswiez = () => {
 
     if (klocek.koniec()) {
-        alert(`Jesteś słaby, masz tylko ${arena.score} pkt. Spróbuj jeszcze raz.`);
+        alert(`Przegrałeś, zdobyłeś ${arena.score} pkt. Spróbuj jeszcze raz.`);
         clearInterval(interval);
+        setup();
     }
 
     if (klocek.kolizja() || arena.kolizja2(klocek)) {
